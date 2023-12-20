@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next'
-import './globals.css'
+import './globals.css' //전역 스타일
 
 export const metadata: Metadata = {
   title: 'Web tutorials',
