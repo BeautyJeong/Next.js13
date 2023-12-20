@@ -3,6 +3,11 @@ import styles from './page.module.css'
 
 export default function Home() {
   return (
-      <main>Hello, Nextjs!</main>
+      <>
+          <h2>Welcome</h2>
+          Hello, WEB!
+          <br/><br/>
+          <img src="/hello.jpg" alt=""/>
+      </>
   )
 }
