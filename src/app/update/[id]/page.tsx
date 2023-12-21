@@ -2,15 +2,25 @@
 import {useParams, useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 
+interface Result {
+    id: string;
+    title: string;
+    body: {content : string};
+}
+
 export default function Update() {
+    const [title, setTitle] = useState<string>('');
+    const [body, setBody] = useState<string>('');
     const router = useRouter();
-    const params = useParams();
+    const params = useParams<{ id: string }>();
     const id = params.id;
     useEffect(()=>{
         fetch('http://localhost:9999/topics/'+id)
             .then(resp=>resp.json())
             .then(result=>{
-                console.log(result);
+                console.log(result.body.content);
+                setTitle(result.title);
+                setBody(result.body.content);
             })
     }, []);
     return (
@@ -21,7 +31,7 @@ export default function Update() {
                 const title = (event.target as any).title.value;
                 const body = (event.target as any).body.value;
                 const options = {
-                    method: "POST",
+                    method: "PATCH",
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -38,13 +48,13 @@ export default function Update() {
                     })
             }}>
                 <p>
-                    <input type="text" name="title" placeholder="title" />
+                    <input type="text" name="title" placeholder="title" value={title} onChange={e=>setTitle(e.target.value)}/>
                 </p>
                 <p>
-                    <textarea name="body" placeholder="body"></textarea>
+                    <textarea name="body" placeholder="body" value={body} onChange={e=>setBody(e.target.value)}></textarea>
                 </p>
                 <p>
-                    <input type="submit" value="create"/>
+                    <input type="submit" value="Update"/>
                 </p>
             </form>
         </>
