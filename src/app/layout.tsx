@@ -18,7 +18,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-    const resp = await fetch('http://localhost:9999/topics');
+    const resp = await fetch('http://localhost:9999/topics', { cache: 'no-store' }); //fetch하여 생긴 cache 지우는 매커니즘: Revalidation Data
     const topics: Topic[] = await resp.json();
   return (
     <html>
