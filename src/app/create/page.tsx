@@ -8,8 +8,8 @@ export default function Create() {
             <h2>Create Page~</h2>
             <form onSubmit={(event)=>{
                 event.preventDefault();
-                const title = event.target.title.value;
-                const body = event.target.body.value;
+                const title = (event.target as any).title.value;
+                const body = (event.target as any).body.value;
                 const options = {
                     method: "POST",
                     headers: {
