@@ -20,6 +20,7 @@ export default async function Read(props: ReadProps): Promise<JSX.Element> {
     return (
         <>
             <h2>{topic.title}</h2>
+            <p>{topic.body.content}</p>
             parameters : {props.params.id}
         </>
     );
