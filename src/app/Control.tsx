@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation'
 
 export default function Control(){
-    const params = useParams();
+    const params = useParams();//read페이지의 props를 사용하지 못하므로 useParams 사용
     const id = params.id;
 
     return (
@@ -11,7 +11,7 @@ export default function Control(){
             <ul>
                 <li><Link href="/create">Create</Link></li>
                 { id ? <>
-                    <li><Link href="/update/1">Update</Link></li>
+                    <li><Link href={`/update/${id}`}>Update</Link></li>
                     <li><input type="button" value="delete"/></li>
                 </> : null }
             </ul>
