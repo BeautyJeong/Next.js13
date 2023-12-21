@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import type { Metadata } from 'next'
 import './globals.css'
+import Control from './Control'
+import {func} from "prop-types";
 
 export const metadata: Metadata = {
   title: 'Web tutorials',
@@ -32,11 +34,7 @@ export default async function RootLayout({
       </ol>
       {children}
 
-      <ul>
-          <li><Link href="/create">Create</Link></li>
-          <li><Link href="/update/1">Update</Link></li>
-          <li><input type="button" value="delete"/></li>
-      </ul>
+      <Control />
       </body>
     </html>
   )
