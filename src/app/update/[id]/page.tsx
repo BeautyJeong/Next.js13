@@ -1,6 +1,7 @@
 "use client"
 import {useParams, useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
+import axios from "axios";
 
 interface Result {
     id: string;
@@ -38,8 +39,8 @@ export default function Update() {
                     body: JSON.stringify({title, "body": {"content": body}})
                 }
 
-                fetch('http://localhost:9999/topics', options)
-                    .then(res=>res.json())
+                axios.patch(`http://localhost:9999/topics/${id}`, { title, body: { content: body } }, options)
+                    .then(res=>res.data)
                     .then(result=>{
                         console.log(result)
                         const lastId = result.id;
