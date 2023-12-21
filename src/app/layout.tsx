@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next'
 import './globals.css'
-import { useEffect, useState } from "react"; //전역 스타일
 
 export const metadata: Metadata = {
   title: 'Web tutorials',
@@ -20,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
     const resp = await fetch('http://localhost:9999/topics');
-    const topics = await resp.json();
+    const topics: Topic[] = await resp.json();
   return (
     <html>
       <body>
