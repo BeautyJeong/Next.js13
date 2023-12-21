@@ -15,7 +15,7 @@ export default function Control(){
                     <li><Link href={`/update/${id}`}>Update</Link></li>
                     <li><input type="button" value="Delete" onClick={()=>{
                         const options = {method: "DELETE"}
-                        fetch(`http://localhost:9999/topics/${id}`, options)
+                        fetch(process.env.NEXT_PUBLIC_API_URL+`topics/${id}`, options)
                             .then(resp=>resp.json())
                             .then(result=>{
                                 router.push('/'); //글 삭제한 후 홈으로 리디렉션

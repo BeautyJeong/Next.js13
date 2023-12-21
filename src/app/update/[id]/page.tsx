@@ -16,7 +16,7 @@ export default function Update() {
     const params = useParams<{ id: string }>();
     const id = params.id;
     useEffect(()=>{
-        fetch('http://localhost:9999/topics/'+id)
+        fetch(process.env.NEXT_PUBLIC_API_URL+'topics/'+id)
             .then(resp=>resp.json())
             .then(result=>{
                 console.log(result.body.content);
@@ -39,7 +39,7 @@ export default function Update() {
                     body: JSON.stringify({title, "body": {"content": body}})
                 }
 
-                axios.patch(`http://localhost:9999/topics/${id}`, { title, body: { content: body } }, options)
+                axios.patch(process.env.NEXT_PUBLIC_API_URL+`topics/${id}`, { title, body: { content: body } }, options)
                     .then(res=>res.data)
                     .then(result=>{
                         console.log(result)

@@ -17,8 +17,9 @@ export default function Create() {
                     },
                     body: JSON.stringify({title, "body": {"content": body}})
                 }
+                console.log(process.env.API_URL)
 
-                fetch('http://localhost:9999/topics', options)
+                fetch(process.env.NEXT_PUBLIC_API_URL+'topics', options)
                     .then(res=>res.json())
                     .then(result=>{
                         console.log(result)
