@@ -1,5 +1,10 @@
 # Next.js 13
 - [생활코딩 강의 참고](https://www.youtube.com/playlist?list=PLuHgQVnccGMCwxXsQuEoG-JJ7RlwtNdwJ)
+
+## 시작하기
+- 백엔드 `npx json-server --port 9999 --watch db.json`
+- 프론트 `npm run dev`
+
 ## [ Full Stack Web Application Framework ]
 1. SSR(Server Side Rendering)
 2. App router
